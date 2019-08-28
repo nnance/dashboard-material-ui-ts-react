@@ -5,17 +5,27 @@
   "dependencies": {
     "@material-ui/core": "^4.3.3",
     "@material-ui/icons": "^4.2.1",
+    "cookie-parser": "^1.4.4",
+    "debug": "^4.1.1",
+    "express": "^4.17.1",
+    "lodash": "^4.17.15",
+    "morgan": "^1.9.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.1",
     "recharts": "^1.7.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "server:start": "node ./bin/www",
+    "server:dev": "nodemon ./bin/www",
+    "server:build": "tsc --build tsconfig-server.json",
+    "build": "react-scripts build && tsc --build tsconfig-server.json",
+    "app:start": "react-scripts start",
+    "app:build": "react-scripts build",
+    "app:test": "react-scripts test",
+    "app:eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:5000/",
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -32,11 +42,17 @@
     ]
   },
   "devDependencies": {
+    "@types/cookie-parser": "^1.4.2",
+    "@types/debug": "^4.1.5",
+    "@types/express": "^4.17.1",
     "@types/jest": "^24.0.18",
+    "@types/lodash": "^4.14.138",
+    "@types/morgan": "^1.7.37",
     "@types/node": "^12.7.2",
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.9.0",
     "@types/recharts": "^1.1.21",
+    "nodemon": "^1.19.1",
     "tslint": "^5.19.0",
     "typescript": "^3.5.3"
   }

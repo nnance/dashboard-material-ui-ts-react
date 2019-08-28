@@ -1,0 +1,16 @@
+{
+    "extends": "./tsconfig",
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "compilerOptions": {
+        "module": "commonjs",
+        "outDir": "build/server",
+        "sourceMap": true,
+        "noEmit": false
+    },
+    "include": [
+        "src/server"
+    ],
+    "exclude": []
+  }
