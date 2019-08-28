@@ -10,18 +10,23 @@ import TableRow from "@material-ui/core/TableRow";
 import React from "react";
 import Title from "./Title";
 
-// Generate Order Data
-function createData(id: number, date: string, name: string, shipTo: string, paymentMethod: string, amount: number) {
-  return { id, date, name, shipTo, paymentMethod, amount };
+interface IOrder {
+  id: number;
+  date: string;
+  name: string;
+  shipTo: string;
+  paymentMethod: string;
+  amount: number;
 }
 
-const rows = [
-  createData(0, "16 Mar, 2019", "Elvis Presley", "Tupelo, MS", "VISA ⠀•••• 3719", 312.44),
-  createData(1, "16 Mar, 2019", "Paul McCartney", "London, UK", "VISA ⠀•••• 2574", 866.99),
-  createData(2, "16 Mar, 2019", "Tom Scholz", "Boston, MA", "MC ⠀•••• 1253", 100.81),
-  createData(3, "16 Mar, 2019", "Michael Jackson", "Gary, IN", "AMEX ⠀•••• 2000", 654.39),
-  createData(4, "15 Mar, 2019", "Bruce Springsteen", "Long Branch, NJ", "VISA ⠀•••• 5919", 212.79),
-];
+const callApi = async (): Promise<IOrder[]> => {
+  const response = await fetch("/orders");
+  const body = await response.json();
+  if (response.status !== 200) {
+    throw Error(body.message);
+  }
+  return body;
+};
 
 const useStyles = makeStyles((theme) => ({
   seeMore: {
@@ -30,7 +35,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Orders() {
+  const [rows, setRows] = React.useState([] as IOrder[]);
   const classes = useStyles();
+
+  React.useEffect(() => {
+    callApi().then(setRows);
+  }, [] as IOrder[]);
+
   return (
     <React.Fragment>
       <Title>Recent Orders</Title>
@@ -45,7 +56,7 @@ export default function Orders() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {rows.map((row: IOrder) => (
             <TableRow key={row.id}>
               <TableCell>{row.date}</TableCell>
               <TableCell>{row.name}</TableCell>
