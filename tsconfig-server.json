@@ -5,12 +5,15 @@
     "noUnusedParameters": true,
     "compilerOptions": {
         "module": "commonjs",
-        "outDir": "build/server",
+        "outDir": "./build",
         "sourceMap": true,
         "noEmit": false
     },
     "include": [
-        "src/server"
+        "src/server",
+        "src/structs"
     ],
-    "exclude": []
+    "exclude": [
+        "src/app"
+    ]
   }

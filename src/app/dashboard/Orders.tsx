@@ -1,32 +1,10 @@
 /* eslint-disable no-script-url */
 
-import Link from "@material-ui/core/Link";
-import { makeStyles } from "@material-ui/core/styles";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
+import { Link, makeStyles, Table, TableBody, TableCell, TableHead, TableRow } from "@material-ui/core";
 import React from "react";
+import { IOrder } from "../../structs/orders";
+import { getOrders } from "../api";
 import Title from "./Title";
-
-interface IOrder {
-  id: number;
-  date: string;
-  name: string;
-  shipTo: string;
-  paymentMethod: string;
-  amount: number;
-}
-
-const callApi = async (): Promise<IOrder[]> => {
-  const response = await fetch("/orders");
-  const body = await response.json();
-  if (response.status !== 200) {
-    throw Error(body.message);
-  }
-  return body;
-};
 
 const useStyles = makeStyles((theme) => ({
   seeMore: {
@@ -35,12 +13,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Orders() {
-  const [rows, setRows] = React.useState([] as IOrder[]);
   const classes = useStyles();
 
+  const [rows, setRows] = React.useState<IOrder[]>([]);
   React.useEffect(() => {
-    callApi().then(setRows);
-  }, [] as IOrder[]);
+    getOrders().then(setRows);
+  }, []);
 
   return (
     <React.Fragment>
