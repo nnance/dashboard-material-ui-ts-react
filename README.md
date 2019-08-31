@@ -1,4 +1,19 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# dashboard-material-ui-typescript-react
+
+A minimal dashboard with taskbar and mini variant draw. The chart is courtesy of Recharts, but it is simple to substitute an alternative.
+
+## Create Steps
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) with the [TypeScript](https://www.typescriptlang.org/) option.
+
+Added the Material-UI react component framework with
+
+```ssh
+$ npm i -S @material-ui/core @material-ui/icons recharts
+$ npm i -D @types/recharts
+```
+
+Added the [Dashboard template](https://github.com/mui-org/material-ui/tree/master/docs/src/pages/getting-started/templates/dashboard) and converted it to TypeScript
 
 ## Available Scripts
 
