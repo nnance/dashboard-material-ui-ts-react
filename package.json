@@ -1,5 +1,5 @@
 {
-  "name": "dashboard-material-ui-typescript-react",
+  "name": "dashboard-material-ui-ts-react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -23,7 +23,8 @@
     "app:start": "react-scripts start",
     "app:build": "react-scripts build",
     "app:test": "react-scripts test",
-    "app:eject": "react-scripts eject"
+    "app:eject": "react-scripts eject",
+    "docker": "docker build --rm -f 'Dockerfile' -t dashboard-material-ui-ts-react:latest ."
   },
   "proxy": "http://localhost:5000/",
   "eslintConfig": {

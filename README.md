@@ -1,4 +1,4 @@
-# dashboard-material-ui-typescript-react
+# dashboard-material-ui-ts-react
 
 A minimal dashboard with taskbar and mini variant draw. The chart is courtesy of Recharts, but it is simple to substitute an alternative.
 
@@ -13,6 +13,23 @@ The project source is organized as follows:
 * `./src/server` source for the express server app
 * `./src/structs` contains the shared data structures used by the client and server
 
+## Getting started
+
+To run the application in development mode you first need to build it
+
+```ssh
+$ npm run app:build && npm run server:build
+```
+
+Runs the React app in the development mode
+```
+$ npm run app:start
+```
+
+Run the server app in development mode on a different port from the React app development server
+```
+$ PORT=5000 npm run server:dev
+```
 
 ## Create Steps
 
@@ -32,6 +49,14 @@ Added express server using [Express application generator](https://expressjs.com
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm run build`
+
+Builds the client and server applications for production deployment
+
+### `npm run docker`
+
+Builds docker image from docker file
 
 ### `npm run app:start`
 
