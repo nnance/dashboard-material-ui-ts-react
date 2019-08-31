@@ -15,6 +15,12 @@ $ npm i -D @types/recharts
 
 Added the [Dashboard template](https://github.com/mui-org/material-ui/tree/master/docs/src/pages/getting-started/templates/dashboard) and converted it to TypeScript
 
+## Branches
+
+### Server
+
+There is a server branch with extended documentation that has an express server that serves the dashboard data and the static web application once it's built
+
 ## Available Scripts
 
 In the project directory, you can run:
